@@ -1,0 +1,11 @@
+- if current_user.present?
+  %h1
+    Upload some files
+
+  = simple_form_for @site do |f|
+    = f.input :gallery, as: :gallery
+
+-else
+  %h1
+    Please 
+    = link_to "Login", new_user_session_path

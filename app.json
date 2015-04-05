@@ -1,0 +1,38 @@
+{
+  "name": "Mediocre",
+  "description": "Easily have a company media library hosted on amazon s3 and heroku",
+  "website": "http://www.kohactive.com",
+  "addons": ["mandrill"],
+  "env": { 
+    "RAILS_ENV": "production",
+    "S3_BUCKET_NAME": "",
+    "AWS_ACCESS_KEY_ID": "",
+    "AWS_SECRET_ACCESS_KEY": "",
+    "S3_REGION": "us-east-1",
+    "S3_CLOUDFRONT_DOMAIN": "s3.amazonaws.com/[bucket_name]",
+    "APP_HOST": {
+      "description": "The public url of your application, used for mailer urls.",
+      "value": "[app-name].herokuapp.com"
+    },
+    "SEND_MAIL_FROM": {
+      "description": "Email address to send mail from."
+    },
+    "SEED_USERNAME": {
+      "description": "The email for your first user."
+    },
+    "SEED_PASSWORD": {
+      "description": "The password for your first user.",
+      "generator": "secret"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "This gets generated",
+      "generator": "secret"
+    }
+  },
+  "repository": "https://github.com/j-mcnally/mediocre",
+  "logo": "https://avatars3.githubusercontent.com/u/4223?v=3&s=200",
+  "keywords": ["rails", "s3"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate; bundle exec rake db:seed"
+  }
+}
