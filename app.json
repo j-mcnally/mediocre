@@ -5,11 +5,22 @@
   "addons": ["mandrill"],
   "env": { 
     "RAILS_ENV": "production",
-    "SECRET_KEY_BASE": {
-      "description": "This gets generated",
-      "generator": "secret"
+    "S3_BUCKET_NAME": "",
+    "AWS_ACCESS_KEY_ID": "",
+    "AWS_SECRET_ACCESS_KEY": "",
+    "S3_REGION": "",
+    "S3_CLOUDFRONT_DOMAIN": "s3.amazonaws.com/[bucket_name]",
+    "APP_HOST": {
+      "description": "The public url of your application, used for mailer urls."
+    },
+    "SEND_MAIL_FROM": {
+      "description": "Email address to send mail from."
     },
     "SEED_PASSWORD": {
+      "description": "The password for the default admin user.",
+      "generator": "secret"
+    },
+    "SECRET_KEY_BASE": {
       "description": "This gets generated",
       "generator": "secret"
     }
