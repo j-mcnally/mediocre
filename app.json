@@ -11,7 +11,8 @@
     "S3_REGION": "",
     "S3_CLOUDFRONT_DOMAIN": "s3.amazonaws.com/[bucket_name]",
     "APP_HOST": {
-      "description": "The public url of your application, used for mailer urls."
+      "description": "The public url of your application, used for mailer urls.",
+      "value": "[app-name].herokuapp.com"
     },
     "SEND_MAIL_FROM": {
       "description": "Email address to send mail from."
