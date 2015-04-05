@@ -12,7 +12,7 @@ Click deploy to heroku below.
 
 Fill out your s3 credentials and bucket name as config variables on heroku.
 
-Login with admin / seed_password listed in your heroku config.
+Login with seed_username / seed_password listed in your heroku config.
 
 
 *Create additional users*
