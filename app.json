@@ -1,0 +1,23 @@
+{
+  "name": "Mediocre - A Rails / S3 media library",
+  "description": "Easily have a company media library hosted on amazon s3 and heroku",
+  "website": "http://www.kohactive.com",
+  "addons": ["mandrill"],
+  "env": { 
+    "RAILS_ENV": "production",
+    "SECRET_KEY_BASE": {
+      "description": "This gets generated",
+      "generator": "secret"
+    },
+    "SEED_PASSWORD": {
+      "description": "This gets generated",
+      "generator": "secret"
+    }
+  },
+  "repository": "https://github.com/j-mcnally/mediocre",
+  "logo": "https://avatars3.githubusercontent.com/u/4223?v=3&s=200",
+  "keywords": ["rails", "s3"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate; bundle exec rake db:seed"
+  }
+}

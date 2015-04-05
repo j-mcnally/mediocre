@@ -1,0 +1,37 @@
+!!! Strict
+%html
+  %head
+    %title= h(yield(:title) || "Mediocre" )
+    = csrf_meta_tag
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag :application
+    = yield(:head)
+    
+  %body
+    #wrap
+      / Fixed navbar
+      .navbar.navbar-default.navbar-top
+        .container
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to "Mediocre", root_path, :class => 'navbar-brand'
+          .collapse.navbar-collapse
+            %ul.nav.navbar-nav.pull-right
+              - if current_user.present?
+                %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+              
+          / /.nav-collapse
+      / Begin page content
+      .container.container-main
+        - flash.each do |name, msg|
+          %div.alert.alert-info
+            = content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String)
+        = yield
+    #footer
+      .container
+        %p.text-muted.credit
+          Mediocre
+          @ #{Time.now.year}.

@@ -1,0 +1,12 @@
+
+.row
+  .col-xs-6
+    %h2 Confirm your account
+    = simple_form_for(resource, :as => resource_name, :url => confirm_path) do |form|
+      = devise_error_messages!
+
+      = form.input :password, :input_html => {:autofocus => true}
+      = form.input :password_confirmation
+      = form.input :confirmation_token, :as => :hidden, :input_html => { :value => @original_token }
+      
+      = form.submit "Confirm Account", :label => 'Confirm Account'

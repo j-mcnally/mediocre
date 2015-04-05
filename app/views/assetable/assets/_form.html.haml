@@ -1,0 +1,17 @@
+.assetable-assets.assetable-modal.modal.fade.assetable-modal-edit-asset
+  .modal-dialog
+    .modal-content
+      = simple_form_for [:assetable, asset], url:"#", remote: false, html: {class: "form-edit-asset"} do |f|
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4.modal-title Asset Urls
+        .modal-body
+                
+          - f.object.filename.versions.each_pair do |k,v|
+            .form_group.row
+              .col-xs-12
+                = f.label k
+                = text_field_tag "", v.url, class: "form-control input-fluid"
+
+        .modal-footer
+          = button_tag "Cancel", class: "btn btn-default", :'data-dismiss' => "modal", type: "button"

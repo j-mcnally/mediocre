@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if Site.all.empty?
+  Site.create(title: "Default Site")
+end
+
+user = User.new.tap do |u|
+  u.email = "admin"
+  u.password = ENV['SEED_PASSWORD']
+  u.password_confirmation = ENV['SEED_PASSWORD']
+  u.skip_confirmation!
+  u.save!
+end
