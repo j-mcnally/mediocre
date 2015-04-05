@@ -11,7 +11,7 @@ if Site.all.empty?
 end
 
 user = User.new.tap do |u|
-  u.email = "admin"
+  u.email = ENV['SEED_USERNAME']
   u.password = ENV['SEED_PASSWORD']
   u.password_confirmation = ENV['SEED_PASSWORD']
   u.skip_confirmation!
