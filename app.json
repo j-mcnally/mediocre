@@ -1,5 +1,5 @@
 {
-  "name": "Mediocre - A Rails / S3 media library",
+  "name": "Mediocre",
   "description": "Easily have a company media library hosted on amazon s3 and heroku",
   "website": "http://www.kohactive.com",
   "addons": ["mandrill"],
