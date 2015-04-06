@@ -8,10 +8,9 @@ class SitesController < ApplicationController
 
   private def site_attributes
     params.require(:site).permit({
-      gallery_attributes: {
-        id: :id, 
+      gallery_attributes: [:id, {
         asset_attachments_attributes: [:id, :sort_order, :asset_id, :"_destroy"]
-      }
+      }]
     })
   end
   
